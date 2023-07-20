@@ -41,6 +41,14 @@ public class Clase {
 		return retorno;
 	}
 	
+	public String ListStringVariables() {
+		String retorno = "";
+		for(int i=0;i<this.Var.size();i++) {
+			retorno += this.Var.get(i).StringVariable()+"\n";
+		}
+		return retorno;
+	}
+	
 	public String ListMetodos() {
 		String retorno = "";
 		for(int i=0;i<this.Met.size();i++) {
@@ -49,9 +57,17 @@ public class Clase {
 		return retorno;
 	}
 	
+	public String ListStringMetodos() {
+		String retorno = "";
+		for(int i=0;i<this.Met.size();i++) {
+			retorno += this.Met.get(i).StringMetodo()+"\n";			
+		}
+		return retorno;
+	}
+	
 	public String ListaConstructor() {
 		String retorno = "";
-		retorno += this.Acceso+" "+this.Const.StringConstructor();
+		retorno += this.Acceso+" "+this.Const.StringConstructor()+"{\n}";
 		
 		return retorno ;
 	}

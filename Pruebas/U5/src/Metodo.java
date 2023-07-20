@@ -4,14 +4,16 @@ public class Metodo {
 	public String Nombre;
 	public String Tipo;
 	public String Acceso;
-	public ArrayList<Variable> Parametros;
+	public ArrayList<Variable> Parametros = new ArrayList<Variable>();
 	
 	public Metodo(String nom, String tip, String acc, ArrayList<Variable> vars) {
 		this.Nombre = nom;
 		this.Tipo = tip;
 		this.Acceso = acc;
+		if(vars != null) {
 		for(int i=0;i<vars.size();i++) {
 			this.Parametros.add(vars.get(i));
+		}
 		}
 	}
 	
@@ -28,6 +30,14 @@ public class Metodo {
 		for(int i=0;i<this.Parametros.size();i++) {
 			retorno += i+". "+this.Parametros.get(i).StringVariable()+"\n";
 		}
+		return retorno;
+	}
+	
+	public String StringMetodo() {
+		String retorno = "";
+		
+		retorno += this.Acceso+" "+this.Nombre+this.ListParametros()+"{\n}";
+		
 		return retorno;
 	}
 	

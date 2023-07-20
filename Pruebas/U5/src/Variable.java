@@ -26,7 +26,7 @@ public class Variable {
 	
 	public String StringVariable() {
 		String retorno = "";
-		retorno += this.Acceso+" "+this.Tipo+" "+this.Nombre;
+		retorno += this.Acceso+" "+this.Tipo+" "+this.Nombre+";";
 		return retorno;
 	}
 	

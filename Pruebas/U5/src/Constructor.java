@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Constructor {
-	public ArrayList<Variable> Variables;
+	public ArrayList<Variable> Variables = new ArrayList<Variable>();
 	public String Nombre;
 	
 	public Constructor(String nom, ArrayList<Variable> vars) {
