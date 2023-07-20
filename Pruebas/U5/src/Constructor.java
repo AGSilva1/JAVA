@@ -25,7 +25,17 @@ public class Constructor {
 		for(int i=0;i<this.Variables.size();i++) {
 			retorno += this.Variables.get(i).StringParametro();
 		}
-		return retorno+")";
+		retorno += "){";
 		
+		return retorno;
+		
+	}
+	
+	private String ListVaraiblesAsigna() {
+		String retorno = "";
+		for(int i=0;i<this.Variables.size();i++) {
+			retorno += this.Variables.get(i).StringParametro();
+		}
+		return retorno;
 	}
 }

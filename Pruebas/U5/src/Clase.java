@@ -67,7 +67,7 @@ public class Clase {
 	
 	public String ListaConstructor() {
 		String retorno = "";
-		retorno += this.Acceso+" "+this.Const.StringConstructor()+"{\n}";
+		retorno += this.Acceso+" "+this.Const.StringConstructor();
 		
 		return retorno ;
 	}

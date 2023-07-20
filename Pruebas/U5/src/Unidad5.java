@@ -9,25 +9,35 @@ public class Unidad5 {
 		Variable variable;
 		Metodo metodo;
 		
-		clas = new Clase("Persona", "public");
-		clases.add(clas);
+		EjemploBase();
+				
 		
-		variable = new Variable("Nombre","String",true,"private");		
-		clases.get(0).AddVariable(variable);
+	}
+	
+	public static void EjemploBase() {
+		ArrayList<Clase> clasesEjem = new ArrayList<Clase>();
+		Clase clasEjem;		
+		Variable variableEjem;
+		Metodo metodoEjem;
 		
-		clases.get(0).startConstructor();
+		clasEjem = new Clase("Persona", "public");
+		clasesEjem.add(clasEjem);
 		
-		metodo = new Metodo("stringPersona","String","public",null);
+		variableEjem = new Variable("Nombre","String",true,"private");		
+		clasesEjem.get(0).AddVariable(variableEjem);
 		
-		clases.get(0).AddMetodo(metodo);
+		clasesEjem.get(0).startConstructor();
 		
-		System.out.println(clases.get(0).Acceso+" class "+clases.get(0).Nombre+"{\n");
-		System.out.println(clases.get(0).ListStringVariables());
+		metodoEjem = new Metodo("stringPersona","String","public",null);
+		
+		clasesEjem.get(0).AddMetodo(metodoEjem);
+		
+		System.out.println(clasesEjem.get(0).Acceso+" class "+clasesEjem.get(0).Nombre+"{\n");
+		System.out.println(clasesEjem.get(0).ListStringVariables());
+		//System.out.println("\n");
+		System.out.println(clasesEjem.get(0).ListaConstructor());
 		System.out.println("\n");
-		System.out.println(clases.get(0).ListaConstructor());
-		System.out.println("\n");
-		System.out.println(clases.get(0).ListStringMetodos()+"\n}");
-		
+		System.out.println(clasesEjem.get(0).ListStringMetodos()+"\n}");
 	}
 
 }
