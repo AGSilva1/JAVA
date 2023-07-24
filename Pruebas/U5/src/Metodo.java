@@ -17,10 +17,34 @@ public class Metodo {
 		}
 	}
 	
+	public String ListParametrosJAVA() {
+		String retorno = "";
+		for(int i=0;i<this.Parametros.size();i++) {
+			retorno += ""+this.Parametros.get(i).StringParametroJAVA();
+		}
+		return "("+retorno+")";
+	}
+	
 	public String ListParametros() {
 		String retorno = "";
 		for(int i=0;i<this.Parametros.size();i++) {
-			retorno += ""+this.Parametros.get(i).StringParametro();
+			retorno += ""+this.Parametros.get(i).StringParametroJAVA();
+		}
+		return "("+retorno+")";
+	}
+	
+	public String ListParametrosPHP() {
+		String retorno = "";
+		for(int i=0;i<this.Parametros.size();i++) {
+			retorno += ""+this.Parametros.get(i).StringParametroPHP();
+		}
+		return "("+retorno+")";
+	}
+	
+	public String ListParametrosJS() {
+		String retorno = "";
+		for(int i=0;i<this.Parametros.size();i++) {
+			retorno += this.Parametros.get(i).StringParametroJS();
 		}
 		return "("+retorno+")";
 	}
@@ -37,6 +61,30 @@ public class Metodo {
 		String retorno = "";
 		
 		retorno += this.Acceso+" "+this.Nombre+this.ListParametros()+"{\n}";
+		
+		return retorno;
+	}
+	
+	public String StringMetodoPHP() {
+		String retorno = "";
+		
+		retorno += this.Acceso+" "+this.Nombre+this.ListParametrosPHP()+"{\n}";
+		
+		return retorno;
+	}
+	
+	public String StringMetodoC() {
+		String retorno = "";
+		
+		retorno +=this.Tipo+" "+this.Nombre+this.ListParametros()+"{\n     }";
+		
+		return retorno;
+	}
+	
+	public String StringMetodoJS() {
+		String retorno = "";
+		
+		retorno +=this.Nombre+this.ListParametrosJS()+"{\n     }";
 		
 		return retorno;
 	}

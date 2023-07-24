@@ -12,27 +12,55 @@ public class Variable {
 		this.Acceso = acc;
 	}
 	
-	public void setAcceso(String acc) {
-		this.Acceso = acc;
-	}
-	
-	public void setTipo(String tip) {
-		this.Tipo = tip;
-	}
-	
-	public void setNombre(String nom) {
-		this.Nombre = nom;
-	}
-	
 	public String StringVariable() {
 		String retorno = "";
 		retorno += this.Acceso+" "+this.Tipo+" "+this.Nombre+";";
 		return retorno;
 	}
 	
+	public String StringVariablePHP() {
+		String retorno = "";
+		retorno += this.Acceso+" $"+this.Nombre+";";
+		return retorno;
+	}
+	
+	public String StringParametroJAVA() {
+		String retorno = "";
+		retorno += this.Nombre;
+		return retorno;
+	}
+	
+	public String StringParametroPHP() {
+		String retorno = "";
+		retorno += "$"+this.Nombre;
+		return retorno;
+	}
+	
+	public String StringParametroC() {
+		String retorno = "";
+		retorno += this.Nombre;
+		return retorno;
+	}
 	public String StringParametro() {
 		String retorno = "";
 		retorno += this.Tipo+" "+this.Nombre;
+		return retorno;
+	}
+	public String StringParametroJS() {
+		String retorno = "";
+		retorno += this.Nombre;
+		return retorno;
+	}
+	
+	public String StringVariableC() {
+		String retorno = "";
+		retorno += this.Tipo+" "+this.Nombre+";";
+		return retorno;
+	}
+	
+	public String StringVariableJS() {
+		String retorno = "";
+		retorno += "this."+this.Nombre+" = "+this.Nombre+";";
 		return retorno;
 	}
 }
