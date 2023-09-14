@@ -36,7 +36,7 @@ public class Refigerador {
 		
 		String respuesta = "";
 		
-		respuesta += "		"+this.Marca+" "+this.Modelo+"\n";
+		respuesta += "		"+this.Marca.toUpperCase()+" "+this.Modelo.toUpperCase()+"\n";
 		respuesta += "		"+this.Alto+"(csm) Alto x "+this.Ancho+"(cms) Ancho x "+this.Largo+"(cms) = "+volumenTotal()+"(cms) Volumen Total \n";
 		respuesta += "		Temperatura "+this.TemMax+"°C / "+Fahrenheit()+"°F / "+Kelvin()+"K \n";
 		respuesta += "		Temperatura Contenedor "+TemperaturaContenedor()+" \n";
