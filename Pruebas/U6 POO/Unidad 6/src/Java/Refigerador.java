@@ -35,15 +35,17 @@ public class Refigerador {
 	public String Reporte() {
 		
 		String respuesta = "";
-		
-		respuesta += "		"+this.Marca.toUpperCase()+" "+this.Modelo.toUpperCase()+"\n";
-		respuesta += "		"+this.Alto+"(csm) Alto x "+this.Ancho+"(cms) Ancho x "+this.Largo+"(cms) = "+volumenTotal()+"(cms) Volumen Total \n";
-		respuesta += "		Temperatura "+this.TemMax+"°C / "+Fahrenheit()+"°F / "+Kelvin()+"K \n";
-		respuesta += "		Temperatura Contenedor "+TemperaturaContenedor()+" \n";
-		respuesta += "		Volumen Contenedor "+VolumenContenedor()+" \n";
-		respuesta += "		Potencia "+this.Watts+" Watts \n";
-		respuesta += "		Potencia Morgan "+Morgan()+" \n";	
-		
+		respuesta += "==============REPORTE REFIGERADOR=================\n";
+		respuesta += "Marca: "+this.Marca.toUpperCase()+"\n";
+		respuesta += "Modelo: "+this.Modelo.toUpperCase()+"\n";
+		respuesta += "Volumen Total "+Math.round(volumenTotal())+"(cms) \n";
+		respuesta += "Temperaturas: "+this.TemMax+"°C / "+Fahrenheit()+"°F / "+Kelvin()+"K \n";
+		respuesta += "Temperatura Contenedor: "+Math.round(TemperaturaContenedor())+"°C \n";
+		respuesta += "Volumen Contenedor: "+Math.round(VolumenContenedor())+"(cms) \n";
+		respuesta += "Potencia: "+this.Watts+" Watts \n";
+		respuesta += "Potencia Morgan: "+Math.round(Morgan())+" Watts \n";	
+		respuesta += "Precio Neto: $"+this.Precio+" \n";	
+		respuesta += "Potencia Total: $"+Math.round(this.Precio * 1.19)+" \n";	
 		return respuesta;
 		
 		
@@ -63,14 +65,16 @@ public class Refigerador {
 	} 
 	
 	private double TemperaturaContenedor() {
-		double respuesta = 0;
-		
+		double alpha = ((this.Alto * this.Alto + this.Ancho) / this.Largo);
+		double t1 = Math.pow(this.TemMax, 3) * Math.sin(Math.toRadians(this.TemMax * Math.PI / 360 + alpha));
+		double t2 = Math.cbrt(this.TemMax * this.TemMax) * Math.log(Math.abs(this.TemMax - (this.Alto * this.Ancho) / this.Largo));
+		double respuesta = Math.max(t1, t2);
 		return respuesta;
 	}
 	
 	private double Morgan() {
 		double respuesta = 0;
-			respuesta = this.Watts;
+			respuesta = this.Watts * Math.exp(-this.Garantia / this.Watts);
 		return respuesta;
 	}
 	
