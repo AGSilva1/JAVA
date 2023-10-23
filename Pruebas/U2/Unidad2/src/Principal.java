@@ -45,6 +45,8 @@ public class Principal {
 					
 					Televisor tvIngresa = new Televisor(marca, modelo, valor, pulgadas, smart);
 					
+					tvIngresa.toString();
+					
 				break;
 			case 2:
 				String codigo = "";
@@ -58,6 +60,7 @@ public class Principal {
 				do {
 				System.out.println("Ingrese Modelo");
 				modelo = sc.next();
+				
 				}while(!cam.ValidaModelo(modelo, modelo));
 				do {
 				System.out.println("Ingrese Codigo");
@@ -81,6 +84,8 @@ public class Principal {
 				}while(!cam.ValidaValor(alcance, false));
 				
 				CamaraIp camIngresa = new CamaraIp(codigo, giro, pixeles, alcance, marca, modelo, valor);
+				
+				camIngresa.toString();
 				
 				break;
 				

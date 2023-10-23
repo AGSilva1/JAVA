@@ -19,7 +19,38 @@ public class CamaraIp extends Artefacto {
 	}
 	
 	public boolean ValidaCodigo(String cod) {
-		
+		char Caracteres[] = cod.toCharArray();
+			int cantidadN = 0;
+			int cantidadC = 0;
+			
+			for(int n = 0; n < cod.length(); n++) {
+				if(Character.isDigit(Caracteres[n])) {
+					cantidadN ++;
+				}else {
+					cantidadC ++;
+				}
+			}
+			
+			if(cantidadN != 3) {
+				System.out.println("EL codigo debe contener 3 numeros");
+				return false;
+			}
+			if(cantidadC != 4) {
+				System.out.println("EL codigo debe contener 4 letras");
+				return false;
+			}
+			
+			for(int i = 0; i < cod.length(); i++) {
+			
+				for(int j = i+1; j < cod.length(); j++) {
+					if(Caracteres[i] == Caracteres[j]) {
+						System.out.println("Las consonantes y vocales no pueden repetirse");
+						return false;
+					}
+				}
+			
+			
+		}
 		
 		return true;
 		

@@ -40,6 +40,13 @@ Artefacto {
 	
 	public boolean ValidaEmpresaCable(String nombre) {
 		
+		char c = nombre.charAt(0);
+		
+		if(c >= 'A' && c <= 'Z') {
+			System.out.println("La primera letra del nombre de la empresa debe ser en mayuscula");
+			return false;
+		}
+		
 		if(nombre.length() > 8) {
 			System.out.println("El nombre de la empresa no puede contener mas de 8 caracteres");
 			return false;

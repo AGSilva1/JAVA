@@ -114,8 +114,36 @@ public class Artefacto {
 
 	public boolean ValidaMarca(String marca) {
 		
+		if(marca.length() < 4) {
+			System.out.println("La marca debe contener un minimo de 4 caracteres solo letras");
+			return false;
+		}
+		
 		char Caracteres[] = marca.toCharArray();
 		
+		for(int x = 0; x < marca.length(); x++) {
+			if ((Caracteres[x] >= 'A' && Caracteres[x] <= 'Z') || Caracteres[x] == ' ') {
+				System.out.println("La marca solo debe contener letras mayusculas.");
+                return false;
+            }
+		}
+		
+		for(int i = 0; i < marca.length(); i++) {
+			
+			if(Character.isDigit(Caracteres[i])) {
+				System.out.println("La marca solo debe contener letras.");
+				return false;
+			}
+			
+			for(int j = i+1; j < marca.length(); j++) {
+				if(Caracteres[i] == Caracteres[j]) {
+					System.out.println("Las letras no pueden repetirse");
+					return false;
+				}
+			}
+			
+			
+		}
 		return true;
 		
 	}
