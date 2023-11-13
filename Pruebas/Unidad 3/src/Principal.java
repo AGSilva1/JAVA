@@ -10,16 +10,20 @@ public class Principal {
 		FileWriter fichero = null;
 		PrintWriter pw = null;
 		
-		Bus bs = new Bus();
-		Pasajero pj = new Pasajero();
-		//Lee archivo
+		Recorrido trayecto = null;
+		
+
+		//Lee archivo1
 		try {
-			archivo = new File("C:\\XD.txt");
+			archivo = new File("C:\\datosBus.txt");
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 			String linea;
 			while((linea=br.readLine())!= null) {
 				System.out.println(linea);
+				if(linea.indexOf(";")> 0) {
+					trayecto.IniciarRecorrido(linea.split(";")[0], linea.split(";")[1]);
+				}
 			}
 			
 		}catch(Exception e) {
@@ -33,10 +37,33 @@ public class Principal {
 				e.printStackTrace();
 			}
 		}
+		
+		//Lee archivo1
+				try {
+					archivo = new File("C:\\primeraSubidaBus.txt");
+					fr = new FileReader(archivo);
+					br = new BufferedReader(fr);
+					String linea;
+					while((linea=br.readLine())!= null) {
+						
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}finally {
+					try {
+						if(null != fr) {
+							fr.close();
+						}
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+		
 		//Escribe en el archivo
 		try {
 			
-			fichero = new FileWriter("C:\\XD2.txt");
+			fichero = new FileWriter("C:\\ultimaBajadaBus.txt");
 			pw = new PrintWriter(fichero);
 			
 			

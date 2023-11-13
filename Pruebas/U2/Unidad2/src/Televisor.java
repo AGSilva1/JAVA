@@ -3,22 +3,22 @@ public class Televisor extends
 Artefacto {
 	Integer Pulgadas;
 	boolean SmartTv;
-	
+	String EmpresaCable;
 	
 	public Televisor() {
 		
 		
 	}
 	
-	public Televisor(String marca, String modelo, double valor, Integer pulgadas, boolean smart) { 
+	public Televisor(String marca, String modelo, double valor, Integer pulgadas, boolean smart, String empresa) { 
 		super(marca, modelo, valor); 
 		this.Pulgadas = pulgadas;
 		this.SmartTv = smart;
+		this.EmpresaCable = empresa;
 	}
 	
 	public boolean ValidaPulgadas(int valor) {
 		
-		System.out.println(valor);
 		if(valor < 32  || valor >55) {
 			System.out.println("Las pugadas son desde 32 hasta 55");
 			return false;
@@ -42,7 +42,7 @@ Artefacto {
 		
 		char c = nombre.charAt(0);
 		
-		if(c >= 'A' && c <= 'Z') {
+		if(!Character.isUpperCase(c)) {
 			System.out.println("La primera letra del nombre de la empresa debe ser en mayuscula");
 			return false;
 		}
@@ -57,5 +57,17 @@ Artefacto {
 		
 	}
 
-	
+	public String toString() {
+		String retorno = "";
+		
+		retorno += "Televisor";
+		retorno += "\nMarca: "+ this.Marca;
+		retorno += "\nModelo: "+this.Modelo;
+		retorno += "\nPulgadas: "+ this.Pulgadas;
+		retorno += "\nSmartTV: "+ this.SmartTv;
+		retorno += "\nEmpresa Cable: " + this.EmpresaCable;
+		retorno += "\nValor US: $" + this.Valor;
+		
+		return retorno;
+	}
 }

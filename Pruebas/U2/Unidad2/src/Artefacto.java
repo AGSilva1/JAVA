@@ -51,8 +51,9 @@ public class Artefacto {
 				}
 			}else {
 				for(int v = 0; v < 5; v ++) {
+					
 					if(Caracteres[a] == vocales[v]) {	
-						System.out.println("El formato del modelo no coincide, los primeros dos caracteres deben consonantes distintos");
+						System.out.println("El formato del modelo no coincide, los primeros dos caracteres deben ser solo consonantes distintos");
 						return false;
 					}
 				}
@@ -98,8 +99,8 @@ public class Artefacto {
 		
 		
 		
-		for(int i = 0; i < 7; i++ ) {
-			for(int j = 0; j < 6; i++) {
+		for(int i = 0; i < Palabra2.length(); i++ ) {
+			for(int j = 0; j < 6; j++) {
 				if(letter[i] == excluidos[j]) {
 					System.out.println("La segunda seccion del modelo no puede incluir las siguientes letras {'H', 'W', 'F', 'h', 'w', 'f'}");
 					return false;
@@ -122,10 +123,14 @@ public class Artefacto {
 		char Caracteres[] = marca.toCharArray();
 		
 		for(int x = 0; x < marca.length(); x++) {
-			if ((Caracteres[x] >= 'A' && Caracteres[x] <= 'Z') || Caracteres[x] == ' ') {
+			if ((Caracteres[x] <= 'A' && Caracteres[x] >= 'Z') || Caracteres[x] == ' ') {
 				System.out.println("La marca solo debe contener letras mayusculas.");
                 return false;
             }
+			if(!Character.isUpperCase(Caracteres[x])) {
+				System.out.println("La marca solo debe contener letras mayusculas.");
+				return false;
+			}
 		}
 		
 		for(int i = 0; i < marca.length(); i++) {

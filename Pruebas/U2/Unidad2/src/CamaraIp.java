@@ -27,6 +27,10 @@ public class CamaraIp extends Artefacto {
 				if(Character.isDigit(Caracteres[n])) {
 					cantidadN ++;
 				}else {
+					if(Caracteres[n] <= 'A' && Caracteres[n] >= 'Z') {
+						System.out.println("El Codigo deben ser solamente letras y numeros");
+						return false;
+					}
 					cantidadC ++;
 				}
 			}
@@ -44,7 +48,7 @@ public class CamaraIp extends Artefacto {
 			
 				for(int j = i+1; j < cod.length(); j++) {
 					if(Caracteres[i] == Caracteres[j]) {
-						System.out.println("Las consonantes y vocales no pueden repetirse");
+						System.out.println("Las consonantes, vocales y numeros no pueden repetirse");
 						return false;
 					}
 				}
@@ -58,7 +62,7 @@ public class CamaraIp extends Artefacto {
 	
 	public boolean ValidaGiro(int grado) {
 		
-		if(grado < 0 && grado > 360) {
+		if(grado < 0 || grado > 360) {
 			System.out.println("El giro de la camara debe ser entre 0 y 360 grados");
 			return false;
 		}
@@ -69,7 +73,7 @@ public class CamaraIp extends Artefacto {
 	
 	public boolean ValidaPixeles(double pixel) {
 		
-		if(pixel < 5.0 && pixel >16.3) {
+		if(pixel < 5.0 || pixel >16.3) {
 			System.out.println("Los megapixeles de la camara deben ser entre 5.0 y 16.3");
 			return false;
 		}
@@ -79,7 +83,7 @@ public class CamaraIp extends Artefacto {
 	
 	public boolean validaAlcance(double metros) {
 		
-		if(metros < 3 && metros > 14) {
+		if(metros < 3 || metros > 14) {
 			System.out.println("Los metros de alcance del Wifi de la camara debe ser entre 3 y 14 metros");
 			return false;
 		}
@@ -87,5 +91,19 @@ public class CamaraIp extends Artefacto {
 		
 	}
 	
+	public String toString() {
+		String retorno = "";
+		
+		retorno += "CamaraIP";
+		retorno += "\nMarca: "+ this.Marca;
+		retorno += "\nCodigo: "+ this.Codigo;
+		retorno += "\nModelo: "+this.Modelo;
+		retorno += "\nGiro: "+ this.Giro+"°";
+		retorno += "\nMegaPixeles: " + this.MegaPixeles;
+		retorno += "\nMetros alcanze de Wifi: " + this.AlcanzeWifi;
+		retorno += "\nValor US: $" + this.Valor;
+		
+		return retorno;
+	}
 	
 }
