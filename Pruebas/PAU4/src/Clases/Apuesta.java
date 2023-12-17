@@ -1,7 +1,12 @@
+package Clases;
 
 public class Apuesta {
 
 	public String resultado;
+	
+	public Apuesta() {
+		
+	}
 	
 	public Apuesta(String ap) {
 		this.resultado = ap;

@@ -1,10 +1,17 @@
+package Clases;
 
 public class Partido {
 	
 	public String resultado;
 	
-	public Partido(String resul) {
-		this.resultado = result;
+	public Partido() {
+		
 	}
+	
+	public Partido(String resul) {
+		this.resultado = resul;
+	}
+	
+	
 
 }
