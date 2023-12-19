@@ -7,7 +7,7 @@ public class Apostador {
 	public Apuesta[] Internacional;
 	public Apuesta[] Internacional3;
 	
-	public Apostador(String nom, Apuesta[] nac, Apuesta[] inter2, Apuesta[] inter, Apuesta[] inter3) {
+	public Apostador(String nom, Apuesta[] inter, Apuesta[] inter2, Apuesta[] inter3, Apuesta[] nac) {
 		this.Alias = nom;
 		this.Nacional = nac;
 		this.Internacional2 = inter2;
@@ -26,6 +26,23 @@ public class Apostador {
 		}
 		return valor;
 		
+	}
+	
+	public String MostrarApuestas() {
+		String retorno = "";
+		String Inter1 = "Internacional 1: \n";
+		String Inter2 = "Internacional 2: \n";
+		String Inter3 = "Internacional 3: \n";
+		String Nac = "Nacional: \n";
+		retorno += "Apuestas\n";
+		for(int i = 0; i < 4; i++) {
+			Inter1 += "Partido "+ i +": "+ this.Internacional[i].resultado+"\n";
+			Inter2 += "Partido "+ i +": "+ this.Internacional2[i].resultado+"\n";
+			Inter3 += "Partido "+ i +": "+ this.Internacional3[i].resultado+"\n";
+			Nac += "Partido "+ i +": "+ this.Internacional[i].resultado+"\n";
+		}
+		retorno += Inter1 + Inter2 + Inter3 + Nac;
+		return retorno;
 	}
 	
 
