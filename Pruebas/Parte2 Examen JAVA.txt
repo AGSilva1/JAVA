@@ -1,0 +1,21 @@
+Caja:
+	-Produtos
+	-Compras
+
+Producto:
+	-Nombre
+	-Valor
+	-Cantidad
+
+Pago:
+	-TipoDoc
+	-Nro 
+	-Monto
+	-Total
+
+Compra: 
+	-Productos
+	-Pago
+	-puntos
+	-MontoNeto
+	-MontoTotal
